@@ -28,6 +28,10 @@ body {
     top: 70px;
 }
 
+.right{
+    margin-left: 700px;
+}
+
 .col-md-6 {
     text-align: center;
 }

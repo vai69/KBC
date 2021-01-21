@@ -12,14 +12,36 @@
 
     <link rel="stylesheet" href="styles.css">
     <title>KBC</title>
-    <script src="index.js"></script>
+    <script src= 
+"https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity= 
+"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"> 
+    </script> 
+      
+    <script src= 
+"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity= 
+"sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"> 
+    </script> 
+      
+    <script src= 
+"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity= 
+"sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"> 
+    </script> 
+    <!--<script type="text/javascript" src="/ajax/kbc.js">
+    //console.log("gaifhdkd")
+</script>-->
 </head>
 
 <body>
     <img src="images/download.jpg">
     <div class="lifeline">
-        <button type="button" class="btn btn-dark btn-lg btn-circle" onclick="call()"><i class="fa fa-phone-square" aria-hidden="true"></i></button> 
-        <button type="button" class="btn btn-dark btn-lg btn-circle" onclick="half()">50-50</button>
+        <button type="button" class="btn btn-dark btn-lg btn-circle"  onclick="call(); this.disabled=true"><i class="fa fa-phone-square" aria-hidden="true"></i></button> 
+        <button type="button" class="btn btn-dark btn-lg btn-circle" onclick="half()" this.disabled=true">50-50</button>
         <button type="button" class="btn btn-dark btn-lg btn-circle"><i class="fa fa-users" aria-hidden="true"></i></button>
         <button type="button" class="btn btn-dark btn-lg btn-circle"><i class="fa fa-exchange" aria-hidden="true"></i></button>
     </div>
@@ -44,18 +66,19 @@
         <h2><%= que %></h2>
     </div>
     <div class="row">
-        <button class="col-sm-6 upper btn left color a" ><h4>a] <%= a %></h4></button>
-        <button class="col-sm-6 upper btn color b" ><h4>b] <%= b %></h4></button>
-        <button class="col-sm-6 btn  left color c" ><h4>c] <%= c %></h4></button>
-        <button class="col-sm-6 btn color d"><h4>d] <%= d %></h4></button>
+        <form action='/verify' method="POST">
+            <button class="col-md-6 upper btn left color a" name="button" value='a'><h4>a] <%= a %></h4></button>
+            <button class="col-md-6 upper btn color b" name="button" value='b'><h4>b] <%= b %></h4></button>
+            <button class="col-md-6 btn  left color c" name="button" value='c'><h4>c] <%= c %></h4></button>
+            <button class="col-md-6 btn color d" name="button" value='d'><h4>d] <%= d %></h4></button>
+        </form>
     </div>
- <script>
+<script>
      function call(){
         alert("According to Dr Khetmalis the correct answer would be <%= ans %>");
      }
+
      function half(){
-        var ak= "hiiii";
-        console.log(ak)
         if ("<%= ans %>" =='a')
         {
             $('.c').prop('disabled', true);
@@ -77,7 +100,22 @@
             $('.c').prop('disabled', true);
         }
      }
+
+    function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  //xhttp.onreadystatechange = function() {
+    //if (this.readyState == 4 && this.status == 200) {
+     // document.getElementById("demo").innerHTML = this.responseText;
+  //}
+  //};
+  xhttp.open("GET", "https://quizzrapi.herokuapp.com/random", true);
+  console.log(this.responseText)
+  console.log("ajax")
+  xhttp.send();
+}
 </script>
+</script>
+
 </body>
 
 </html>
