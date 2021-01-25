@@ -13,17 +13,10 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico">
     <title>KBC</title>
-    <script src= 
-"https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity= 
-"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"> 
+    <script src= "https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity= "sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"> 
     </script> 
       
-    <script src= 
-"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity= 
-"sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    <script src= "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity= "sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"> 
     </script> 
       
@@ -32,10 +25,9 @@
         integrity= 
 "sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"> 
-    </script> 
-    <!--<script type="text/javascript" src="/ajax/kbc.js">
-    //console.log("gaifhdkd")
-</script>-->
+</script> 
+    
+
 </head>
 
 <body>
@@ -47,7 +39,7 @@
         <button type="button" class="btn btn-dark btn-lg btn-circle"><i class="fa fa-exchange" aria-hidden="true"></i></button>
     </div>
     <div class="timer">
-        <p>0</p>
+        0
     </div>
     <div class="levels">
         <ul style="padding: 25px">
@@ -66,14 +58,23 @@
     <div class="question">
         <h2><%= que %></h2>
     </div>
-    <div class="row">
-        <form action='/verify' method="POST">
-            <button class="col-md-6 upper btn left color a" name="button" value='a'><h4>a] <%= a %></h4></button>
-            <button class="col-md-6 upper btn color b" name="button" value='b'><h4>b] <%= b %></h4></button>
-            <button class="col-md-6 btn  left color c" name="button" value='c'><h4>c] <%= c %></h4></button>
-            <button class="col-md-6 btn color d" name="button" value='d'><h4>d] <%= d %></h4></button>
+    
+    <div class="row d-flex justify-content-center">
+        <form  class="form-inline" action='/verify' method="POST" style="text-align: center;">
+            <div class="col-md-6">
+            <button class="upper btn left color a" name="button" value='a' style="margin: 2%"><h4>a] <%= a %></h4></button>
+        </div>
+        <div class="col-md-6">
+            <button class="upper btn color b " name="button" value='b' style="margin: 2%"><h4>b] <%= b %></h4></button>
+        </div><div class="col-md-6">
+            <button class="btn  left color c " name="button" value='c' style="margin: 2%"><h4>c] <%= c %></h4></button></div>
+            <div class="col-md-6">
+            <button class="btn color d " name="button" value='d' style="margin: 2%"><h4>d] <%= d %></h4></button>
+        </div>
         </form>
     </div>
+
+    <script type="text/javascript" src="../ajax/kbc.js"></script>
 <script>
      function call(){
         alert("According to Dr Khetmalis the correct answer would be <%= ans %>");
@@ -102,19 +103,18 @@
         }
      }
 
-    function loadDoc() {
-  var xhttp = new XMLHttpRequest();
+    //function loadDoc() {
+  //var xhttp = new XMLHttpRequest();
   //xhttp.onreadystatechange = function() {
     //if (this.readyState == 4 && this.status == 200) {
      // document.getElementById("demo").innerHTML = this.responseText;
   //}
   //};
-  xhttp.open("GET", "https://quizzrapi.herokuapp.com/random", true);
-  console.log(this.responseText)
-  console.log("ajax")
-  xhttp.send();
-}
-</script>
+  //xhttp.open("GET", "https://quizzrapi.herokuapp.com/random", true);
+  //console.log(this.responseText)
+  //console.log("ajax")
+  //xhttp.send();
+//}
 </script>
 
 </body>
